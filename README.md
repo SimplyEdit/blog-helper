@@ -117,3 +117,53 @@ You can also write your own sorting routine:
 	});
 </script>
 ```
+
+# Advanced options
+
+There is nothing to stop an editor from making a typo in the name of the
+month. But you can force the month names by using a select input:
+
+```
+<div data-simply-list="articles" data-simply-data="blog">
+	<template>
+		<article>
+	 		<time>
+				<span data-simply-field="day">08</span>
+				<span data-simply-field="month" data-simply-hidden>September</span>
+				<select class="blog-edit-month" data-simply-field="month" data-simply-content="fixed">
+					<option>January</option>
+					<option>February</option>
+					<option>March</option>
+					<option>April</option>
+					<option>May</option>
+					<option>June</option>
+					<option>July</option>
+					<option>August</option>
+					<option>September</option>
+					<option>October</option>
+					<option>November</option>
+					<option>December</option>
+				</select>
+				<span data-simply-field="year">2016</span>
+			</time>
+   			<a href="#" data-simply-field="data-simply-path" data-simply-content="fixed">
+   				<h3 data-simply-field="title">title</h3>
+			</a>
+			<p data-simply-field="summary">summary</p>
+		</article>	
+	</template>
+</div>
+```
+
+Now you probably want to hide the select input when not in edit mode, so 
+add this to your stylesheet:
+
+```
+.blog-edit-month {
+	display: none;
+}
+body[data-simply-edit] .blog-edit-month {
+	display: block;
+}
+```
+
