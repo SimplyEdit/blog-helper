@@ -22,21 +22,21 @@ normal. But add the following custom settings:
 
 ```
 <script>
-	var seSettings = {
-		'pageTemplate': {
-			templates: [
-				{name: 'Default', template: 'index.html'},
-				{name: 'Blog post', template: 'blog.html'}
-			]
-		}
-	};
+    var seSettings = {
+        'pageTemplate': {
+            templates: [
+                {name: 'Default', template: 'index.html'},
+                {name: 'Blog post', template: 'blog.html'}
+            ]
+        }
+    };
 </script>
 <script src="//cdn.simplyedit.io/1/simply-edit.js"
-	data-simply-endpoint="/"
-	data-simply-images="/img/"
-	data-simply-files="/files"
-	data-api-key="your-api-key"
-	data-simply-settings="seSettings"
+    data-simply-endpoint="/"
+    data-simply-images="/img/"
+    data-simply-files="/files"
+    data-api-key="your-api-key"
+    data-simply-settings="seSettings"
 ></script>
 ```
 
@@ -47,19 +47,19 @@ place:
 
 ```
 <div data-simply-list="articles" data-simply-data="blog">
-	<template>
-		<article>
-	 		<time>
-				<span data-simply-field="date.day">08</span>
-				<span data-simply-field="date.month">September</span>
-				<span data-simply-field="date.year">2016</span>
-			</time>
-   			<a href="#" data-simply-field="data-simply-path" data-simply-content="fixed">
-   				<h3 data-simply-field="title">title</h3>
-			</a>
-			<p data-simply-field="summary">summary</p>
-		</article>	
-	</template>
+    <template>
+        <article>
+             <time>
+                <span data-simply-field="date.day">08</span>
+                <span data-simply-field="date.month">September</span>
+                <span data-simply-field="date.year">2016</span>
+            </time>
+               <a href="#" data-simply-field="data-simply-path" data-simply-content="fixed">
+                   <h3 data-simply-field="title">title</h3>
+            </a>
+            <p data-simply-field="summary">summary</p>
+        </article>    
+    </template>
 </div>
 ```
 
@@ -75,9 +75,9 @@ you can use the blog.js script provided in this repository:
 <script src="/js/json-css.js"></script>
 <script src="/js/simply/blog.js"></script>
 <script>
-	simply.blog('blog', {
-		'template': 'blog.html'
-	});
+    simply.blog('blog', {
+        'template': 'blog.html'
+    });
 </script>
 ```
 
@@ -103,10 +103,10 @@ pass on a list of month names like this:
 
 ```
 <script>
-	simply.blog('blog', {
-		'months': ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep',
-			'Oct','Nov','Dec']
-	});
+    simply.blog('blog', {
+        'months': ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep',
+            'Oct','Nov','Dec']
+    });
 </script>
 ```
 
@@ -116,11 +116,11 @@ You can also write your own sorting routine:
 
 ```
 <script>
-	simply.blog('blog',{
-		'sort': function(a,b) {
-			return a.value['date']['timestamp'] < b.value['date']['timestamp'];
-		}
-	});
+    simply.blog('blog',{
+        'sort': function(a,b) {
+            return a.value['date']['timestamp'] < b.value['date']['timestamp'];
+        }
+    });
 </script>
 ```
 
@@ -138,7 +138,7 @@ You can include it like this:
 ```
 <script src="/js/simply/datepicker.js"></script>
 <script>
-	simply.datePicker();
+    simply.datePicker();
 </script>
 ```
 
@@ -154,20 +154,20 @@ to something like this:
 
 ```
 <div data-simply-list="articles" data-simply-data="blog">
-	<template>
-		<article>
+    <template>
+        <article>
             <time class="date-tag date-tag-large flatpickr">
                 <input class="flatpickr" type="text" data-simply-field="date" data-simply-content="fixed">
                 <span data-simply-field="date.day" data-simply-content="fixed">08</span>
                 <span data-simply-field="date.monthName" data-simply-content="fixed">September</span>
                 <span data-simply-field="date.year" data-simply-content="fixed">2016</span>
             </time>
-   			<a href="#" data-simply-field="data-simply-path" data-simply-content="fixed">
-   				<h3 data-simply-field="title">title</h3>
-			</a>
-			<p data-simply-field="summary">summary</p>
-		</article>	
-	</template>
+               <a href="#" data-simply-field="data-simply-path" data-simply-content="fixed">
+                   <h3 data-simply-field="title">title</h3>
+            </a>
+            <p data-simply-field="summary">summary</p>
+        </article>    
+    </template>
 </div>
 ```
 
@@ -217,10 +217,10 @@ You can change the month names, just like in the blog.js script, like this:
 
 ```
 <script>
-	simply.datepicker('input.fatpickr', {
-		'months': ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep',
-			'Oct','Nov','Dec']
-	});
+    simply.datepicker('input.fatpickr', {
+        'months': ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep',
+            'Oct','Nov','Dec']
+    });
 </script>
 ```
 
