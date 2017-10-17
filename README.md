@@ -49,13 +49,13 @@ place:
 <div data-simply-list="articles" data-simply-data="blog">
     <template>
         <article>
-             <time>
+            <time>
                 <span data-simply-field="date.day">08</span>
                 <span data-simply-field="date.month">September</span>
                 <span data-simply-field="date.year">2016</span>
             </time>
-               <a href="#" data-simply-field="data-simply-path" data-simply-content="fixed">
-                   <h3 data-simply-field="title">title</h3>
+            <a href="#" data-simply-field="data-simply-path" data-simply-content="fixed">
+                <h3 data-simply-field="title">title</h3>
             </a>
             <p data-simply-field="summary">summary</p>
         </article>    
@@ -162,8 +162,8 @@ to something like this:
                 <span data-simply-field="date.monthName" data-simply-content="fixed">September</span>
                 <span data-simply-field="date.year" data-simply-content="fixed">2016</span>
             </time>
-               <a href="#" data-simply-field="data-simply-path" data-simply-content="fixed">
-                   <h3 data-simply-field="title">title</h3>
+            <a href="#" data-simply-field="data-simply-path" data-simply-content="fixed">
+                <h3 data-simply-field="title">title</h3>
             </a>
             <p data-simply-field="summary">summary</p>
         </article>    
