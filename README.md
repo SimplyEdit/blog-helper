@@ -124,7 +124,6 @@ You can also write your own sorting routine:
 </script>
 ```
 
-
 ## datepicker.js
 
 This script allows you to use a nice datepicker in the SimplyEdit editor. You 
@@ -228,4 +227,3 @@ You can change the month names, just like in the blog.js script, like this:
 But mind that this will only change the values upon saving. So if you change
 the months entry, already existing `monthName` entries in your site won't
 automatically update.
-

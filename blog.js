@@ -60,6 +60,9 @@ var simply = (function(simply) {
             applyOnce: true
         });
     };
+
+	return simply;
+
 })(window.simply || {});
 
 var simply = (function(simply) {

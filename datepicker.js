@@ -29,6 +29,16 @@ var simply = (function(simply) {
 			}
 		}
 
+		function findURL() {
+			var scripts = document.querySelectorAll('script[src]');
+			for (var i=0; i<scripts.length; i++ ) {
+				if ( scripts[i].src.match(/datepicker\.js/) ) {
+					return scripts[i].src;
+				}
+			}
+			return '/js/datepicker.js';
+		}
+
 		/* This method tries to initialize a field with flatpickr, if available
 		   Otherwise it adds it to a list for later initialization
 		*/
@@ -63,6 +73,8 @@ var simply = (function(simply) {
 		if (options.source.theme) {
 			loadStyleSheet(options.source.theme);
 		}
+		var url = findURL().replace(/datepicker\.js/,'datepicker.css');
+		loadStyleSheet(url);
 	
 		loadScript(options.source.script, function() {
 			if (fieldList.length) {
