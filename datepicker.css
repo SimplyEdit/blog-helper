@@ -1,0 +1,15 @@
+.flatpickr-calendar.open {
+	border: 1px solid #aaa;
+	border-top: 5px solid #ea5922;
+	box-shadow: 0 0 4px #CCC;
+	border-radius: 0 0 3px 3px;
+}
+.flatpickr-calendar.arrowTop:after {
+	display: none;
+}
+.flatpickr-calendar.arrowTop:before {
+	border-bottom-color: #ea5922;
+	border-width: 12px;
+	margin-top: -12px;
+}
+
