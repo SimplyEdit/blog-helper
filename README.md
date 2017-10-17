@@ -156,7 +156,7 @@ to something like this:
 <div data-simply-list="articles" data-simply-data="blog">
     <template>
         <article>
-            <time class="date-tag date-tag-large flatpickr">
+            <time class="flatpickr">
                 <input class="flatpickr" type="text" data-simply-field="date" data-simply-content="fixed">
                 <span data-simply-field="date.day" data-simply-content="fixed">08</span>
                 <span data-simply-field="date.monthName" data-simply-content="fixed">September</span>
