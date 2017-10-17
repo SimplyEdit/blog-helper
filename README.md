@@ -7,7 +7,7 @@ A small script to show the latest blog posts
 ## Requirements
 
 This blog scripts works with [SimplyEdit](https://simplyedit.io) websites. It assumes all blog posts are available in the data.json, which is how most SimplyEdit websites work.
-It also needs the json-css library.
+It also needs the [json-css](https://github.com/SimplyEdit/json-css) library.
 
 ## Usage
 
