@@ -10,8 +10,11 @@ var simply = (function(simply) {
         }
         if (!options.sort) {
             options.sort = function(a,b) {
-				if (typeof a.value['date']['value'] != 'undefined') {
-					return (a.value['date']['value'] < b.value['date']['value']);
+            	if (typeof a.value['date'] == 'undefined'||typeof b.value['date']=='undefined') {
+            	    return 0;
+            	}
+                if (typeof a.value['date']['value'] != 'undefined') {
+                    return (a.value['date']['value'] < b.value['date']['value']);
                 } else if (a.value['date']['year']==b.value['date']['year']) {
                     if (a.value['date']['month']==b.value['date']['month']) {
                         return ( parseInt(a.value['date']['day']) < parseInt(b.value['date']['day']));
@@ -21,16 +24,16 @@ var simply = (function(simply) {
                 return (parseInt(a.value['date']['year']) < parseInt(b.value['date']['year']));
             }
         }
-		if (!options.max) {
-			options.max = 10;
-		}
-		if (!options.offset) {
-			options.offset = 0;
-		}
+        if (!options.max) {
+            options.max = 10;
+        }
+        if (!options.offset) {
+            options.offset = 0;
+        }
         editor.addDataSource(name, {
             load: function(list,callback) {
                 index = jsonCSS.init(editor.currentData);
-                var list = index.query('search > *', 'data-simply-page-template content[value="'+options.template+'"]')
+                var list = index.query('search > *', 'data-simply-page-template content[value="'+options.template+'"], data-simply-page-template[value="'+options.template+'"]')
                     .sort(options.sort)
 					.slice(options.offset, options.offset+options.max);
                 var result = [];
