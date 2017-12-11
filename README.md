@@ -6,8 +6,10 @@ A small script to show the latest blog posts
 
 ## Requirements
 
-This blog scripts works with [SimplyEdit](https://simplyedit.io) websites. It assumes all blog posts are available in the data.json, which is how most SimplyEdit websites work.
-It also needs the [json-css](https://github.com/SimplyEdit/json-css) library.
+This blog scripts works with [SimplyEdit](https://simplyedit.io) websites. 
+It assumes all blog posts are available in the data.json, which is how most 
+SimplyEdit websites work. It also needs the 
+[json-css](https://github.com/SimplyEdit/json-css) library.
 
 ## Usage
 
@@ -51,7 +53,7 @@ place:
         <article>
             <time>
                 <span data-simply-field="date.day">08</span>
-                <span data-simply-field="date.month">September</span>
+                <span data-simply-field="date.monthName">September</span>
                 <span data-simply-field="date.year">2016</span>
             </time>
             <a href="#" data-simply-field="data-simply-path" data-simply-content="fixed">
@@ -96,7 +98,9 @@ fields which are only visibile and used in the template for the list of
 articles, but not in the blog post itself.
 
 The blog articles will be sorted on the date by default. For this to work
-you must use the `date.day`, `date.month` and `date.year` field names.
+you must use the `date.day`, `date.monthName` and `date.year` field names. Or
+use `date.value` for an ISO 8601 date string. `date.month` is reserved for
+the month number.
 
 The default setup assumes the months are written in english, but you can
 pass on a list of month names like this:
@@ -118,7 +122,7 @@ You can also write your own sorting routine:
 <script>
     simply.blog('blog',{
         'sort': function(a,b) {
-            return a.value['date']['timestamp'] < b.value['date']['timestamp'];
+            return a.value['date']['value'] < b.value['date']['value'];
         }
     });
 </script>
@@ -156,7 +160,7 @@ to something like this:
 <div data-simply-list="articles" data-simply-data="blog">
     <template>
         <article>
-            <time class="flatpickr">
+            <time class="flatpickr cover-date">
                 <input class="flatpickr" type="text" data-simply-field="date" data-simply-content="fixed">
                 <span data-simply-field="date.day" data-simply-content="fixed">08</span>
                 <span data-simply-field="date.monthName" data-simply-content="fixed">September</span>
@@ -170,31 +174,6 @@ to something like this:
     </template>
 </div>
 ```
-
-And add the following CSS to your stylesheet:
-
-```
-time.flatpickr {
-    position: relative;
-}
-time.flatpickr input.flatpickr {
-    border: 0;
-    color: transparent;
-    background: transparent;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0;
-    margin: 0;
-}
-```
-
-This CSS makes the flatpickr date input transparent and overlays it over
-the human readable day, month and year spans. When you click on them, the
-datepicker will open and upon change, the day, month and year will be
-updated as well. 
 
 The datepicker will update the data-simply-field so that becomes an object
 with this structure:
