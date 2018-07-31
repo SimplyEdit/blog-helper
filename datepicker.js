@@ -107,7 +107,20 @@ var simply = (function(simply) {
 				}
 				this.originalValue = data;
 				var date = new Date(data);
-				return options.months[date.getMonth()];
+				return date.getUTCMonth()+1;
+			},
+			extract: function(data) {
+				return this.originalValue;
+			}
+		};
+		editor.transformers['monthName'] = {
+			render: function(data) {
+				if (data.value) {
+					data = data.value;
+				}
+				this.originalValue = data;
+				var date = new Date(data);
+				return options.months[date.getUTCMonth()];
 			},
 			extract: function(data) {
 				return this.originalValue;

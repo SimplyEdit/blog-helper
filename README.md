@@ -157,10 +157,10 @@ to something like this:
     <template>
         <article>
             <time class="flatpickr">
-                <input class="flatpickr" type="text" data-simply-field="date" data-simply-content="fixed">
-                <span data-simply-field="date.day" data-simply-content="fixed">08</span>
-                <span data-simply-field="date.monthName" data-simply-content="fixed">September</span>
-                <span data-simply-field="date.year" data-simply-content="fixed">2016</span>
+                <input class="flatpickr" type="text" data-simply-field="date">
+                <span data-simply-field="date" data-simply-transformer="day">08</span>
+                <span data-simply-field="date" data-simply-transformer="monthName">September</span>
+                <span data-simply-field="date" data-simply-transformer="year">2016</span>
             </time>
             <a href="#" data-simply-field="data-simply-path" data-simply-content="fixed">
                 <h3 data-simply-field="title">title</h3>
@@ -196,22 +196,8 @@ the human readable day, month and year spans. When you click on them, the
 datepicker will open and upon change, the day, month and year will be
 updated as well. 
 
-The datepicker will update the data-simply-field so that becomes an object
-with this structure:
-
-```
-{
-    day: '5',
-    month: '11',
-    monthName: 'October',
-    year: '2017',
-    value: '2017-11-05'
-}
-```
-
-So if you name the field `date`, you can use `date.day` for the day of the
-month. You can use `date.monthName` for the month name. And you can use
-`date.value` to sort the list of blog articles.
+The transformers will change the date value, which looks like this: '2017-11-05'
+to the day, month, year or monthName when rendering.
 
 You can change the month names, just like in the blog.js script, like this:
 
@@ -223,7 +209,3 @@ You can change the month names, just like in the blog.js script, like this:
     });
 </script>
 ```
-
-But mind that this will only change the values upon saving. So if you change
-the months entry, already existing `monthName` entries in your site won't
-automatically update.
