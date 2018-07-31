@@ -6,8 +6,10 @@ A small script to show the latest blog posts
 
 ## Requirements
 
-This blog scripts works with [SimplyEdit](https://simplyedit.io) websites. It assumes all blog posts are available in the data.json, which is how most SimplyEdit websites work.
-It also needs the [json-css](https://github.com/SimplyEdit/json-css) library.
+This blog scripts works with [SimplyEdit](https://simplyedit.io) websites. 
+It assumes all blog posts are available in the data.json, which is how most 
+SimplyEdit websites work. It also needs the 
+[json-css](https://github.com/SimplyEdit/json-css) library.
 
 ## Usage
 
@@ -51,7 +53,7 @@ place:
         <article>
             <time>
                 <span data-simply-field="date.day">08</span>
-                <span data-simply-field="date.month">September</span>
+                <span data-simply-field="date.monthName">September</span>
                 <span data-simply-field="date.year">2016</span>
             </time>
             <a href="#" data-simply-field="data-simply-path" data-simply-content="fixed">
@@ -96,7 +98,9 @@ fields which are only visibile and used in the template for the list of
 articles, but not in the blog post itself.
 
 The blog articles will be sorted on the date by default. For this to work
-you must use the `date.day`, `date.month` and `date.year` field names.
+you must use the `date.day`, `date.monthName` and `date.year` field names. Or
+use `date.value` for an ISO 8601 date string. `date.month` is reserved for
+the month number.
 
 The default setup assumes the months are written in english, but you can
 pass on a list of month names like this:
@@ -118,7 +122,7 @@ You can also write your own sorting routine:
 <script>
     simply.blog('blog',{
         'sort': function(a,b) {
-            return a.value['date']['timestamp'] < b.value['date']['timestamp'];
+            return a.value['date']['value'] < b.value['date']['value'];
         }
     });
 </script>
