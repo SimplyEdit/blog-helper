@@ -84,25 +84,53 @@ var simply = (function(simply) {
 			}
 		});
 
+		if (!editor.transformers) {
+			editor.transformers = {};
+		}
+		editor.transformers['day'] = {
+			render: function(data) {
+				if (data.value) {
+					data = data.value;
+				}
+				this.originalValue = data;
+				var date = new Date(data);
+				return date.getUTCDate();
+			},
+			extract: function(data) {
+				return this.originalValue;
+			}
+		};
+		editor.transformers['month'] = {
+			render: function(data) {
+				if (data.value) {
+					data = data.value;
+				}
+				this.originalValue = data;
+				var date = new Date(data);
+				return options.months[date.getMonth()];
+			},
+			extract: function(data) {
+				return this.originalValue;
+			}
+		};
+		editor.transformers['year'] = {
+			render: function(data) {
+				if (data.value) {
+					data = data.value;
+				}
+				this.originalValue = data;
+				var date = new Date(data);
+				return date.getUTCFullYear();
+			},
+			extract: function(data) {
+				return this.originalValue;
+			}
+		};			
+
 		editor.field.registerType(
 			selector,
-			function(field) { // getter
-				var date = new Date(field.value);
-				return {
-					value: field.value,
-					day: date.getUTCDate(),
-					month: date.getUTCMonth()+1,
-					year: date.getUTCFullYear(),
-					monthName: options.months[date.getMonth()]
-				};
-			},
-			function(field, data) { //setter
-				if (typeof data.value != 'undefined' && field.value!=data.value) {
-					field.value = data.value;
-					return;
-				}
-				//ignore other fields, as the date picker is the way to change the values
-			},
+			null, 
+			null, 
 			function(field) { //makeEditable
 				// registerType must be called immediately, before the content from data.json is loaded
 				// but flatpickr is not yet loaded, so we can't initialize it yet, instead add this field
