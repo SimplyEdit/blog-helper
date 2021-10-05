@@ -13,7 +13,11 @@ var simply = (function(simply) {
                 if (typeof a.value['date'] == 'undefined'||typeof b.value['date']=='undefined') {
                     return 0;
                 }
-                if (typeof a.value['date']['value'] != 'undefined') {
+                if (typeof a.value['date'] === 'string' && typeof b.value['date'] === 'string') {
+                    a = Date.parse(a.value['date']);
+                    b = Date.parse(b.value['date']);
+                    return a<b;
+                } else if (typeof a.value['date']['value'] != 'undefined') {
                     return (a.value['date']['value'] < b.value['date']['value']);
                 } else if (a.value['date']['year']==b.value['date']['year']) {
                     if (a.value['date']['month']==b.value['date']['month']) {
