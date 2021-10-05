@@ -93,7 +93,11 @@ var simply = (function(simply) {
                     data = data.value;
                 }
                 this.originalValue = data;
-                var date = new Date(data);
+                if (!data) {
+                    var date = new Date();
+                } else {
+                    var date = new Date(data);
+                }
                 return date.getUTCDate();
             },
             extract: function(data) {
@@ -106,7 +110,11 @@ var simply = (function(simply) {
                     data = data.value;
                 }
                 this.originalValue = data;
-                var date = new Date(data);
+                if (!data) {
+                    var date = new Date();
+                } else {
+                    var date = new Date(data);
+                }
                 return date.getUTCMonth()+1;
             },
             extract: function(data) {
@@ -119,7 +127,11 @@ var simply = (function(simply) {
                     data = data.value;
                 }
                 this.originalValue = data;
-                var date = new Date(data);
+                if (!data) {
+                    var date = new Date();
+                } else {
+                    var date = new Date(data);
+                }
                 return options.months[date.getUTCMonth()];
             },
             extract: function(data) {
@@ -132,7 +144,11 @@ var simply = (function(simply) {
                     data = data.value;
                 }
                 this.originalValue = data;
-                var date = new Date(data);
+                if (!data) {
+                    var date = new Date();
+                } else {
+                    var date = new Date(data);
+                }
                 return date.getUTCFullYear();
             },
             extract: function(data) {
