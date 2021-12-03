@@ -63,8 +63,7 @@ var simply = (function(simply) {
                     }
                 }
                 editor.data.stash();
-            },
-            applyOnce: true
+            }
         });
     };
 
