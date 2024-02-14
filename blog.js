@@ -16,16 +16,16 @@ var simply = (function(simply) {
                 if (typeof a.value['date'] === 'string' && typeof b.value['date'] === 'string') {
                     a = Date.parse(a.value['date']);
                     b = Date.parse(b.value['date']);
-                    return a<b;
+                    return a<b ? 1 : -1;
                 } else if (typeof a.value['date']['value'] != 'undefined') {
-                    return (a.value['date']['value'] < b.value['date']['value']);
+                    return (a.value['date']['value'] < b.value['date']['value']) ? 1 : -1;
                 } else if (a.value['date']['year']==b.value['date']['year']) {
                     if (a.value['date']['month']==b.value['date']['month']) {
-                        return ( parseInt(a.value['date']['day']) < parseInt(b.value['date']['day']));
+                        return ( parseInt(a.value['date']['day']) < parseInt(b.value['date']['day'])) ? 1 : -1;
                     }
-                    return (options.months.indexOf(a.value['date']['month']) < options.months.indexOf(b.value['date']['month']));
+                    return (options.months.indexOf(a.value['date']['month']) < options.months.indexOf(b.value['date']['month'])) ? 1 : -1;
                 }
-                return (parseInt(a.value['date']['year']) < parseInt(b.value['date']['year']));
+                return (parseInt(a.value['date']['year']) < parseInt(b.value['date']['year'])) ? 1 : -1;
             }
         }
         if (!options.max) {
