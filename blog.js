@@ -55,12 +55,12 @@ var simply = (function(simply) {
                 // this is called before the data.json is saved, so we
                 // can update the editor.currentData here to save
                 // changes. The datasource itself will not be saved
-				let documentPath = editor.data.getDataPath(document);
+                let documentPath = editor.data.getDataPath(document);
                 for (var i=0,l=stash.data.length; i<l; i++) {
-					let path = stash.data[i]['data-simply-path'];
-					if (path == documentPath) {
-						continue;
-					}
+		    let path = stash.data[i]['data-simply-path'];
+		    if (path == documentPath) {
+                        continue;
+                    }
                     for ( var key in stash.data[i] ) {
                         if (key!='data-simply-path') {
                             editor.currentData[path][key] = stash.data[i][key];
