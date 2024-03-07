@@ -23,9 +23,9 @@ var simply = (function(simply) {
                     if (a.value['date']['month']==b.value['date']['month']) {
                         return ( parseInt(a.value['date']['day']) < parseInt(b.value['date']['day'])) ? 1 : -1;
                     }
-                    return (options.months.indexOf(a.value['date']['month']) < options.months.indexOf(b.value['date']['month']))? 1 : -1;
+                    return (options.months.indexOf(a.value['date']['month']) < options.months.indexOf(b.value['date']['month'])) ? 1 : -1;
                 }
-                return (parseInt(a.value['date']['year']) < parseInt(b.value['date']['year']))? 1 : -1;
+                return (parseInt(a.value['date']['year']) < parseInt(b.value['date']['year'])) ? 1 : -1;
             }
         }
         if (!options.max) {
