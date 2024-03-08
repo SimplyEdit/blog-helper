@@ -71,7 +71,6 @@ var simply = (function(simply) {
                 window.setTimeout(function() {
                     var stashedFields = stash.list.querySelectorAll("[data-simply-stashed]");
                     stash.list.removeAttribute("data-simply-stashed");
-                    console.log(stashedFields);
                     for (i=0; i<stashedFields.length; i++) {
                             stashedFields[i].removeAttribute("data-simply-stashed");
                     }
